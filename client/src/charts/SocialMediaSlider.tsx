@@ -3,7 +3,7 @@ import { useState } from "react";
 const SocialMediaSlider = () => {
   const [hours, setHours] = useState(2); // default usage
 
-  const totalYears = (hours * 365 * 80) / 24;
+  const totalDaysPerYear = (hours * 365) / 24;
 
   return (
     <div className="bg-white p-4 rounded shadow max-w-lg mx-auto">
@@ -21,7 +21,9 @@ const SocialMediaSlider = () => {
           className="w-2/3"
         />
       </div>
-      <p className="text-center text-gray-700">You'll spend <strong>{totalYears.toFixed(1)} years</strong> on social media over 80 years.</p>
+      <p className="text-center text-gray-700">
+        You’ll spend <strong>{totalDaysPerYear.toFixed(1)} days</strong> per year on social media.
+      </p>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import * as d3 from "d3";
 import { useEffect, useRef } from "react";
 
-const lifeChart = () => {
+const LifeChart = () => {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -63,4 +63,4 @@ const lifeChart = () => {
   return <div ref={ref}></div>;
 };
 
-export default lifeChart;
+export default LifeChart;

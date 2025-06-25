@@ -1,0 +1,29 @@
+import { useState } from "react";
+
+const SocialMediaSlider = () => {
+  const [hours, setHours] = useState(2); // default usage
+
+  const totalYears = (hours * 365 * 80) / 24;
+
+  return (
+    <div className="bg-white p-4 rounded shadow max-w-lg mx-auto">
+      <h2 className="text-xl font-semibold mb-4 text-center">Social Media Usage Calculator</h2>
+      <div className="flex items-center justify-between mb-2">
+        <label htmlFor="slider" className="text-sm">Daily usage: {hours} hour(s)</label>
+        <input
+          id="slider"
+          type="range"
+          min="0"
+          max="10"
+          step="0.5"
+          value={hours}
+          onChange={e => setHours(parseFloat(e.target.value))}
+          className="w-2/3"
+        />
+      </div>
+      <p className="text-center text-gray-700">You'll spend <strong>{totalYears.toFixed(1)} years</strong> on social media over 80 years.</p>
+    </div>
+  );
+};
+
+export default SocialMediaSlider;

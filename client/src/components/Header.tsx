@@ -1,9 +1,27 @@
 import { Link } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase";
+import { useEffect, useState } from "react";
 
 const Header = () => {
   const [user] = useAuthState(auth);
+  const [darkMode, setDarkMode] = useState(() => {
+    return localStorage.getItem("theme") === "dark";
+  });
+
+
+  useEffect(() => {
+    const root = window.document.documentElement;
+    if (darkMode) {
+      root.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      root.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [darkMode]);
+
+  const toggleDarkMode = () => setDarkMode((prev) => !prev);
 
   const logout = () => {
     auth.signOut();
@@ -18,6 +36,14 @@ const Header = () => {
           <Link to="/" className="hover:text-gray-300 font-semibold">Home</Link>
           <Link to="/about" className="hover:text-gray-300 font-semibold">About</Link>
           <Link to="/calculator" className="hover:text-gray-300 font-semibold">Calculator</Link>
+
+
+          <button
+            onClick={toggleDarkMode}
+            className="ml-4 bg-gray-700 hover:bg-gray-600 text-white px-3 py-1 rounded text-sm"
+          >
+            {darkMode ? "☀️ Light" : "🌙 Dark"}
+          </button>
 
           {user ? (
             <>

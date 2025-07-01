@@ -83,11 +83,12 @@ const CalendarGrid = () => {
   };
 
   return (
-    <div className="bg-white p-4 rounded shadow max-w-2xl mx-auto mt-8">
+    <div className="bg-white dark:bg-gray-800 dark:text-white p-4 rounded shadow max-w-2xl mx-auto mt-8">
+
       <div className="flex justify-between items-center mb-4">
         <button
           onClick={prevMonth}
-          className="text-xl font-bold px-3 py-1 rounded hover:bg-gray-200"
+          className="text-xl font-bold px-3 py-1 rounded hover:bg-gray-200 dark:hover:bg-gray-700"
           aria-label="Previous month"
         >
           ←
@@ -100,7 +101,7 @@ const CalendarGrid = () => {
         </h2>
         <button
           onClick={nextMonth}
-          className="text-xl font-bold px-3 py-1 rounded hover:bg-gray-200"
+          className="text-xl font-bold px-3 py-1 rounded hover:bg-gray-200 dark:hover:bg-gray-700"
           aria-label="Next month"
           disabled={new Date(year, month + 1) > today}
         >
@@ -133,7 +134,7 @@ const CalendarGrid = () => {
                 {
                   "bg-green-500 text-white": isCompleted,
                   "bg-yellow-400 text-black": isToday && !isCompleted,
-                  "bg-white": !isCompleted && !isToday,
+                  "bg-white dark:bg-gray-700 dark:text-white": !isCompleted && !isToday,
                 }
               )}
               role="button"

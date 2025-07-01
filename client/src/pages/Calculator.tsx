@@ -7,7 +7,7 @@ const Calculator = () => {
   const [user] = useAuthState(auth);
 
   return (
-    <div className="p-6">
+    <div className="p-6 bg-white dark:bg-gray-900 dark:text-white">
       <h1 className="text-2xl font-bold mb-6 text-center">Liviz Calculator</h1>
 
       <SocialMediaSlider />
